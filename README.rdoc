@@ -1,0 +1,89 @@
+= chimpster-rails gem
+
+The Chimpster Rails Gem is a drop-in plug-in for ActionMailer to send emails via ses through MailChimp
+== Supported Rails Versions
+
+
+* 3.0
+
+== Install
+
+    sudo gem install chimpster-rails
+
+== Requirements
+
+* "chimpster" gem version 0.1 and higher is required.
+* You will also need a MailChimp account, server and sender signature set up to use it.
+
+== Configuring your Rails application
+
+=== Rails 3
+
+Add this to your Gemfile: (change version numbers if needed)
+
+    gem 'chimpster-rails', '0.1.0'
+    
+Don't forget to run "bundle install" command every time you change something in the Gemfile.
+
+Add this to your config/application.rb:
+
+    config.action_mailer.delivery_method   = :chimpster
+    config.action_mailer.chimpster_settings = { :api_key => "your-api-key" }
+    
+=== Rails 2
+
+Add this to config/environment.rb:
+
+    Rails::Initializer.run do |config|
+    
+      ...
+    
+      config.gem 'chimpster-rails'
+      require    'chimpster-rails'
+      
+      config.action_mailer.chimpster_api_key = "your-api-key"
+      config.action_mailer.delivery_method  = :chimpster
+      
+      ...
+      
+    end
+
+
+=== Rails 3
+
+    class TestMailer < ActionMailer::Base
+    
+      def tagged_message
+        mail(
+          :subject => 'hello',
+          :to      => 'sheldon@bigbangtheory.com',
+          :from    => 'leonard@bigbangtheory.com',
+          :tag     => 'my-tag'
+        )
+      end
+      
+    end
+
+=== Rails 3
+
+    class TestMailer < ActionMailer::Base
+    
+      def message_with_attachment
+        mail(
+          :subject              => 'hello',
+          :to                   => 'sheldon@bigbangtheory.com',
+          :from                 => 'leonard@bigbangtheory.com',
+          :chimpster_attachments => [File.open("/path/to/file")]
+        )
+      end
+      
+    end
+
+== Authors & Contributors
+
+* Michael Hart
+
+
+== Copyright
+
+Copyright © 2011 trahmmhart See LICENSE for details.
