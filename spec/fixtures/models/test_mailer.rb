@@ -1,7 +1,7 @@
 class TestMailer < ActionMailer::Base
   default :subject  => 'hello', 
-          :to       => 'sheldon@bigbangtheory.com', 
-          :from     => 'leonard@bigbangtheory.com'
+          :to       => 'mike@fotomoto.com',
+          :from     => 'mike@fotomoto.com'
           
   def simple_message
     mail

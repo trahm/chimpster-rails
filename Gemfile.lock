@@ -1,10 +1,12 @@
 PATH
   remote: .
   specs:
-    chimpster-rails (0.1.1)
+    chimpster-rails (0.1.3)
       actionmailer
       chimpster (>= 0.1.8)
+      json (= 1.5)
       rake
+      uakari
 
 GEM
   remote: http://rubygems.org/
@@ -30,7 +32,9 @@ GEM
     activesupport (3.0.9)
     archive-tar-minitar (0.5.2)
     builder (2.1.2)
-    chimpster (0.1.8)
+    chimpster (0.1.21)
+      json (= 1.5.0)
+      logging (>= 1.5.2)
     columnize (0.3.4)
     crack (0.1.8)
     diff-lcs (1.1.2)
@@ -44,11 +48,14 @@ GEM
       bundler (~> 1.0)
       git (>= 1.2.5)
       rake
-    json (1.5.3)
+    json (1.5.0)
     linecache (0.46)
       rbx-require-relative (> 0.0.4)
     linecache19 (0.5.12)
       ruby_core_source (>= 0.1.4)
+    little-plugger (1.1.2)
+    logging (1.5.2)
+      little-plugger (>= 1.1.2)
     mail (2.2.19)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
